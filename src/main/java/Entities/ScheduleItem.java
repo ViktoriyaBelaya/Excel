@@ -1,7 +1,10 @@
 package Entities;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class ScheduleItem {
 	private String mentor;
@@ -10,7 +13,7 @@ public class ScheduleItem {
 	private String groupName;
 	private String city;
 	private String office;
-	
+	private TreeMap<String,String> modules= new TreeMap<String, String>();
 	private List<String> menteeList = new ArrayList<String>();
 	
 
@@ -19,13 +22,15 @@ public class ScheduleItem {
 	}
 
 	public ScheduleItem(String mentor, String mentee, String groupName,
-			String manager, String city, String office) {
+			String manager, String city, String office,TreeMap<String,String> modules) {
+
 		this.mentor = mentor;
 		this.mentee = mentee;
 		this.manager = manager;
 		this.groupName = groupName;
 		this.city = city;
 		this.office = office;
+		this.modules = modules;
 	}
 
 	public void addMentee(String mentee1) {
@@ -93,11 +98,15 @@ public class ScheduleItem {
 		this.office = office;
 	}
 
+
+	
+
 	@Override
 	public String toString() {
-		return "[mentor=" + mentor + ", mentee=" + mentee + ", manager="
-				+ manager + ", groupName=" + groupName + ", city=" + city
-				+ ", office=" + office + "]";
+		return "ScheduleItem [mentor=" + mentor + ", mentee=" + mentee
+				+ ", manager=" + manager + ", groupName=" + groupName
+				+ ", city=" + city + ", office=" + office + ", modules="
+				+ modules + "]";
 	}
 
 	@Override
